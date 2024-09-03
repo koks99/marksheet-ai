@@ -2,7 +2,7 @@
 
 Our server:
 
-(add link)
+https://marksheet-ai.onrender.com/
 
 
 > Note: The server can't handle heavy traffic, its for dev purposes only.
