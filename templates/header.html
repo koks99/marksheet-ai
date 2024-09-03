@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <!-- set the favicon -->
+    <link rel="icon" href="{{ url_for('static', path='images/favicon.ico') }}" type="image/x-icon">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="{{ url_for('static', path='css/fonts.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='css/upload.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='css/header.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='css/main_page.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='css/styles.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <a href="/">
+            <img src="{{ url_for('static', path='images/logo.png') }}" class=logo width="50px">
+        </a>
+
+        <nav>
+            <ul>
+                {% if username %}
+                <li class="navbar-item"><a class="navbar-link" href="/logout">Hello, {{ username }}! Click here to Logout</a></li>
+                {% else %}
+                <li class="navbar-item"><a class="navbar-link" href="/login">Login</a></li>
+                {% endif %}
+                <li class="navbar-item">
+                    <form class="search-container" action="/search">
+                        <input type="search" name="query" class="search-bar" id="searchInput" placeholder="Search Records">
+                        <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+    {% block body %}{% endblock body %}
+    <br></br>

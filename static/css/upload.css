@@ -1,0 +1,44 @@
+.big-heading {
+    font-size: 63px;
+    font-weight: 300;
+    color: #013a63;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.big-heading::selection { 
+    background: transparent; 
+}
+
+.big-heading:hover {
+    cursor: default;
+}
+
+.gen_form {
+    width: 550px;
+    height: 200;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.gen_form select {
+    padding-bottom: 2px;
+    width: 500px;
+    background-color: #013a63;
+    color: white;
+    height: 60px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 28px;
+    outline: none;
+    transition: 0.1s ease;
+}
+
+.gen_form select:hover {
+    box-shadow: 0px 0px 10px 0px #013a6388;
+    cursor: pointer;
+}

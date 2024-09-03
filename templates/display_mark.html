@@ -1,0 +1,68 @@
+{% extends 'header.html' %}
+
+{% block title %}
+MSAi
+{% endblock %}
+
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                {% if data|length > 0 %}
+                    {% for key in data.keys() %}
+                        <th>{{ key }}</th>
+                    {% endfor %}
+                {% else %}
+                    <th>No Data Available</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for key, value in data.items() %}
+                    {% if value is iterable and (value is not string and value is not mapping) %}
+                        <td>
+                        <table>
+                            <tr>
+                                {% for i in value[0].keys() %}
+                                <th>{{ i }}</th>
+                                {% endfor %}
+                            </tr>
+                            {% for subitem in value %}
+                            <tr>
+                                {% for j in subitem.keys() %}
+                                    <td>{{ subitem[j] }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        </td>
+                    {% else %}
+                        <td>{{ value }}</td>
+                    {% endif %}
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+<div class="form-container">
+    {% if username %}
+    <form action="/persist_mark" method="post">
+        <input type="hidden" name="extracted_data" value="{{ data_json }}">
+        <div class="row-buttons">
+            <button type="submit" name="action" value="true">Store Extracted Data Privately</button>
+            <button type="submit" name="action" value="false">Store Extracted Data Publicly</button>
+        </div>
+    </form>
+    {% else %}
+    <form action="/persist_mark" method="post">
+    <input type="hidden" name="extracted_data" value="{{ data_json }}">
+        <div class="row-buttons">
+            <button type="submit" name="action" value="false">Store Extracted Data</button>
+        </div>
+    </form>
+    {% endif %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Eina01';
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    background-image: url("../images/main_bg_seamless.png");
+    background-size: cover;
+    margin-top: 150px;
+}
+
+/* Logo to be displayed on all pages except home page */
+.small-logo {
+    width: 200px;
+    position: absolute;
+    top: 133px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Main button */
+.main-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 15px;
+    width: 500px;
+    height: 60px;
+    background: transparent;
+    border: #013a63 solid 5px;
+    border-radius: 31px;
+    color: #013a63;
+    font-size: 28px;
+    line-height: 0.6;
+    text-align: center;
+    transition: 0.1s ease;
+    outline: none;
+}
+
+.main-button:hover {
+    background-color: #013a63;
+    color: #e9f4f7;
+    cursor: pointer;
+}
+
+.main-button:disabled {
+    pointer-events: none;
+    color: #687780;
+    border-color: #687780;
+  }
+
+/* Style for text based buttons like download button */
+.hyperlink-text {
+    margin: 8px;
+    padding: 7px;
+    background: #013a6300;
+    color: #013a63;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 0.6;
+    transition: 0.1s ease;
+}
+
+.hyperlink-text:hover {
+    color: #e9f4f7;
+    cursor: pointer;
+}
+
+#ContainerWithDownloadButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="password"] {
+    width: auto;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    border-radius: 50px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.row-buttons {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    padding: 20px;
+}

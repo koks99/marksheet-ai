@@ -1,0 +1,26 @@
+{% extends 'header.html' %}
+
+{% block title %}
+MSAi
+{% endblock %}
+
+{% block body %}
+<div class="common-title"> Register </div>
+    <form action="/register" method="post">
+        <div class="row-buttons">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="row-buttons">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="row-buttons">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'header.html' %}
+
+{% block title %}
+MSAi
+{% endblock %}
+
+{% block body %}
+
+   <table>
+        <thead>
+            <tr>
+                {% if data|length > 0 %}
+                    {% for key in data[0].keys() %}
+                        <th>{{ key }}</th>
+                    {% endfor %}
+                {% else %}
+                    <th>No Data Available</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+                <tr>
+                    {% for key in item.keys() %}
+                        {% if item[key] is iterable and (item[key] is not string and item[key] is not mapping) %}
+                    <td>
+                        <table>
+                            <tr>
+                            {% for i in item[key][0].keys() %}
+                                <th>{{ i }}</th>
+                            {% endfor %}
+                            </tr>
+                            {% for subitem in item[key] %}
+                            <tr>
+                                {% for j in subitem.keys() %}
+                                    <td>{{ subitem[j] }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                        {% else %}
+                        <td>{{ item[key] }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
