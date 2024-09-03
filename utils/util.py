@@ -11,8 +11,8 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 def get_data_from_extracted_text(text):
-    # Assuming each line of the table starts with a digit
-    lines = re.findall(r'^\d+.*', text, re.MULTILINE)
+    # Assuming first word of each line of the table contains a digit (common course code structure)
+    lines = re.findall(r'^\w*\d\w*.*', text, re.MULTILINE)
     table = [line.split() for line in lines]
     texts = text.split(' ')
     name = ''
