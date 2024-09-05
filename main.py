@@ -75,6 +75,9 @@ async def persist_mark(request: Request, extracted_data: str = Form(...), action
 
 @app.get('/search')
 async def search(request: Request, query: Optional[str] = None):
+    if query is None:
+        query = ''
+
     query_regex = {"$regex": query.strip(), "$options": "i"}
 
     public_query = {"$and": [
